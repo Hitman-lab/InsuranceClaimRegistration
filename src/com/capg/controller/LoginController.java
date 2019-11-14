@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.capg.model.UserRole;
+import com.capg.service.UserService;
 import com.capg.service.UserServiceImpl;
 
 @WebServlet({ "/LoginController", "/Login" })
@@ -27,7 +28,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		UserServiceImpl usrService = new UserServiceImpl();
+		UserService usrService = new UserServiceImpl();
 
 		String userName = request.getParameter("user_name");
 		String userPass = request.getParameter("pass");
@@ -48,7 +49,7 @@ public class LoginController extends HttpServlet {
 				break;
 
 			case "CLAIM HANDLER":
-				response.sendRedirect("Claim_Handler.jsp");
+				response.sendRedirect("ClaimHandler.jsp");
 				break;
 
 			case "INSURED":

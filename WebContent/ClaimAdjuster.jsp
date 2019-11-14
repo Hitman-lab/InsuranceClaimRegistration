@@ -42,7 +42,7 @@
 		</ul>
 	</div>
 	<div>
-		<iframe src="demo_iframe.htm" height="550px" width="100%"
+		<iframe src="adjuster_iframe.htm" height="550px" width="100%"
 			style="border: none;" name="iframe_a"></iframe>
 	</div>
 </body>

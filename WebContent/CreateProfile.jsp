@@ -17,7 +17,7 @@
 					<h3 class="card-header alert alert-danger" style="color: maroon;">Create
 						Profile</h3>
 					<div class="card-body">
-						<form action="#" method="post" name="loginForm">
+						<form action="ProfileCreationController" method="post" name="loginForm">
 							<div class="form-group">
 								<input type="text" class="form-control" id="username"
 									placeholder="Enter username" name="user_name"
@@ -34,13 +34,17 @@
 									<option selected>Choose Roles .....</option>
 									<option value="CLAIM HANDLER">CLAIM HANDLER</option>
 									<option value="INSURED">INSURED</option>
+									<!-- <option value="INSURED">CLAIM ADJUSTER</option> -->
 								</select>
 							</div>
 
 							<input type="submit" value="Submit" class="btn btn-danger"
 								onclick='return(validate())'>
 						</form>
+						<h4 style="color: green;">${param.successMsg }</h4>
+						<h4 style="color: red;">${param.errorMsg }</h4>
 					</div>
+					<div></div>
 				</div>
 			</div>
 		</div>
