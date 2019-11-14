@@ -24,7 +24,7 @@ function validate() {
 	}
 
 	if (password.value == '') {
-		user_passw_msg.innerHTML  = "* Password Required";
+		user_passw_msg.innerHTML = "* Password Required";
 		document.loginForm.pass.focus();
 		return false;
 	}

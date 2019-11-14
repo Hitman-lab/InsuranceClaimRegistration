@@ -1,41 +1,24 @@
 package com.capg.DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.capg.jdbcUtility.JdbcUtility;
 import com.capg.model.UserRole;
 
-public class LoginDaoImpl {
+public class LoginDaoImpl implements LoginDao {
 
-	Connection con = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 
-	public Connection getConnection() {
-		String driver = "oracle.jdbc.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		String username = "web_project";
-		String password = "project123";
-
-		try {
-			Class.forName(driver);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			con = DriverManager.getConnection(url, username, password);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return con;
-	}
-
+	@Override
 	public boolean validateUser(UserRole user) {
-		con = getConnection();
+
+		// Getting the connection
+		Connection con = JdbcUtility.getConnection();
+
 		boolean validateFlag = false;
 		try {
 			ps = con.prepareStatement("select * from user_role where user_name=? and passwords=?");
@@ -62,10 +45,12 @@ public class LoginDaoImpl {
 		return validateFlag;
 	}
 
-	public String getRole(UserRole user) {
+	@Override
+	public String getRoleCode(UserRole user) {
 
+		// getting the connection
+		Connection con = JdbcUtility.getConnection();
 		String result = null;
-		con = getConnection();
 
 		try {
 
@@ -77,7 +62,6 @@ public class LoginDaoImpl {
 			rs.next();
 			result = rs.getString("role_code");
 //			System.out.println(result);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -101,9 +85,8 @@ public class LoginDaoImpl {
 	 * public static void main(String[] args) {
 	 * 
 	 * UserRole u1 = new UserRole("Admin", "Admin123"); new
-	 * LoginDaoImpl().getRole(u1);
+	 * LoginDaoImpl().getRoleCode(u1);
 	 * 
 	 * }
 	 */
-
 }
