@@ -28,7 +28,7 @@
 				<a class="nav-link" href="CreateProfile.jsp" target="iframe_a">CREATE NEW PROFILE</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" target="iframe_a" href="#">CREATE CLAIM</a>
+				<a class="nav-link" target="iframe_a" href="CreateClaim.jsp">CREATE CLAIM</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" target="iframe_a" href="#">VIEW CLAIM</a>
