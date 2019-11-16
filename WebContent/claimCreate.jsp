@@ -17,6 +17,10 @@
 		PolicyService pService = new PolicyServiceImpl();
 		long policyNumberClaim = Long.parseLong(request.getParameter("policyNum"));
 
+		// Storing the policy number into the application Context
+		ServletContext cContext = getServletContext();
+		cContext.setAttribute("policyNumber", policyNumberClaim);
+
 		// checking the Claim has Created or not
 		boolean checkPolicy = pService.isPolicyNumber(policyNumberClaim);
 
@@ -24,14 +28,14 @@
 	%>
 
 	<div class="container" style="margin-top: 50px">
-
 		<div class="row">
 			<div class="col-lg-4 col-lg-5 col-md-5" style="margin-left:;">
 				<div class="card">
 					<h3 class="card-header alert alert-danger" style="color: maroon;">Create
 						Claim</h3>
 					<div class="card-body">
-						<form action="#" method="post" name="claimForm">
+					
+						<form action="claimQuestions.jsp" target="claim_next" method="post" name="claimForm">
 							<div class="form-group">
 								<input type="text" class="form-control" id="claimReason"
 									placeholder="Enter Claim Reason" name="claimReason"
@@ -40,25 +44,25 @@
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" id="location"
-									placeholder="Enter Accident Location" name="claimLocation"
+									placeholder="Enter incident Location" name="claimLocation"
 									required="required"> <span id="location_check"
 									style="color: red;"></span>
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" id="city"
-									placeholder="Enter Accident city" name="accidentCity"
+									placeholder="Enter incident city" name="incidentCity"
 									required="required"> <span id="city_check"
 									style="color: red;"></span>
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" id="state"
-									placeholder="Enter Accident State" name="accidentState"
+									placeholder="Enter incident State" name="incidentState"
 									required="required"> <span id="state_check"
 									style="color: red;"></span>
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" id="zip"
-									placeholder="Enter Accident Zip Code" name="accidentZip"
+									placeholder="Enter incident Zip Code" name="incidentZip"
 									required="required"> <span id="zipCode_check"
 									style="color: red;"></span>
 							</div>
@@ -71,10 +75,7 @@
 									<!-- <option value="INSURED">CLAIM ADJUSTER</option> -->
 								</select>
 							</div>
-							<!-- <input type="submit" value="Submit" class="btn btn-danger"
-								onclick='return(ClaimFieldValidate())'> -->
-							<a href="claimQuestions.jsp" class="btn btn-danger"
-								target="claim_a">NEXT</a>
+							<input type="submit" value="NEXT" class="btn btn-danger" />
 						</form>
 					</div>
 				</div>
@@ -93,7 +94,5 @@
 	<%
 		}
 	%>
-
-
 </body>
 </html>

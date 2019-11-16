@@ -49,9 +49,11 @@
 			</tbody>
 		</table>
 	</div>
-	<div>
-		<iframe src="" height="550px" width="100%" style="border: none;"
+	<div class="container">
+		<iframe src="" height="550px" width="100%" style="border: none; overflow: hidden;"
 			name="claim_a"></iframe>
+		<iframe src="" height="550px" width="100%" style="border: none; overflow: hidden;"
+			name="claim_next"></iframe>
 	</div>
 </body>
 </html>
