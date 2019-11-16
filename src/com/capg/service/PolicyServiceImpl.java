@@ -16,4 +16,8 @@ public class PolicyServiceImpl implements PolicyService {
 		return cailmDao.getPolicyList();
 	}
 
+	@Override
+	public boolean isPolicyNumber(long policyNumber) {
+		return cailmDao.checkPolicyNumber(policyNumber);
+	}
 }

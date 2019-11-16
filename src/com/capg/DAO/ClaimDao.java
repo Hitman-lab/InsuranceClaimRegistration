@@ -6,4 +6,5 @@ import com.capg.model.Policy;
 
 public interface ClaimDao {
 	List<Policy> getPolicyList();
+	boolean checkPolicyNumber(long policyNumber);
 }

@@ -1,11 +1,10 @@
 <%@page import="com.capg.service.PolicyServiceImpl"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="com.capg.service.PolicyService"%>
 <%@page import="com.capg.model.Policy"%>
 <%@page import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,13 +41,17 @@
 						<td>${p.policyType}</td>
 						<td>${p.policyPremium}</td>
 						<td>${p.accountNumber}</td>
-						<td><a class="btn btn-danger"
+						<td><a class="btn btn-danger" target="claim_a"
 							href="claimCreate.jsp?policyNum=${p.policy_number}">CREATE
 								CLAIM</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
+	<div>
+		<iframe src="" height="550px" width="100%" style="border: none;"
+			name="claim_a"></iframe>
 	</div>
 </body>
 </html>

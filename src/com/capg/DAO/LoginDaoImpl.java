@@ -21,7 +21,7 @@ public class LoginDaoImpl implements LoginDao {
 
 		boolean validateFlag = false;
 		try {
-			ps = con.prepareStatement("select * from user_role where user_name=? and passwords=?");
+			ps = con.prepareStatement("select * from user_role where user_name=? and password=?");
 			ps.setString(1, user.getUserName());
 			ps.setString(2, user.getPassword());
 
@@ -54,7 +54,7 @@ public class LoginDaoImpl implements LoginDao {
 
 		try {
 
-			ps = con.prepareStatement("select role_code from user_role where user_name=? and passwords=?");
+			ps = con.prepareStatement("select role_code from user_role where user_name=? and password=?");
 			ps.setString(1, user.getUserName());
 			ps.setString(2, user.getPassword());
 
@@ -81,12 +81,14 @@ public class LoginDaoImpl implements LoginDao {
 		return result;
 	}
 
-	/*
-	 * public static void main(String[] args) {
-	 * 
-	 * UserRole u1 = new UserRole("Admin", "Admin123"); new
-	 * LoginDaoImpl().getRoleCode(u1);
-	 * 
-	 * }
-	 */
+	
+	  public static void main(String[] args) {
+	  
+		
+		  
+	  UserRole u1 = new UserRole("Tanuj", "Tanuj123"); new
+	  LoginDaoImpl().getRoleCode(u1);
+	  
+	  }
+	 
 }

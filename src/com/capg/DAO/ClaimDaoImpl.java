@@ -53,4 +53,43 @@ public class ClaimDaoImpl implements ClaimDao {
 		return policyList;
 	}
 
+	@Override
+	public boolean checkPolicyNumber(long policyNumber) {
+
+		boolean validatePolicy = false;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		con = JdbcUtility.getConnection();
+		try {
+			String query = "select * from claim where policy_number = ?";
+			ps = con.prepareStatement(query);
+			ps.setLong(1, policyNumber);
+
+			rs = ps.executeQuery();
+			validatePolicy = rs.next();
+			System.out.println(validatePolicy);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+
+			try {
+				con.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return validatePolicy;
+	}
+//
+//	public static void main(String[] args) {
+//		new ClaimDaoImpl().checkPolicyNumber(50001);
+//	}
 }
