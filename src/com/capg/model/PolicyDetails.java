@@ -15,6 +15,7 @@ public class PolicyDetails {
 		this.answer = answer;
 	}
 
+	
 	public long getPolicyNumber() {
 		return policyNumber;
 	}

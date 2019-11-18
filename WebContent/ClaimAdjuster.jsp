@@ -30,7 +30,7 @@ li a:hover {
 			<li class="nav-item"><a class="nav-link" target="iframe_a"
 				href="CreateClaim.jsp">CREATE CLAIM</a></li>
 			<li class="nav-item"><a class="nav-link" target="iframe_a"
-				href="#">VIEW CLAIM</a></li>
+				href="viewClaim.jsp">VIEW CLAIM</a></li>
 			<li class="nav-item"><a class="nav-link" target="iframe_a"
 				href="#">GENERATE REPORT</a></li>
 			<li class="nav-item"><a class="nav-link" href="Login.jsp">LOGOUT</a>
