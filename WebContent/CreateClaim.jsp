@@ -41,7 +41,7 @@
 						<td>${p.policyType}</td>
 						<td>${p.policyPremium}</td>
 						<td>${p.accountNumber}</td>
-						<td><a class="btn btn-danger" target="claim_a"
+						<td><a class="btn btn-success" target="claim_a"
 							href="claimCreate.jsp?policyNum=${p.policy_number}">CREATE
 								CLAIM</a></td>
 					</tr>
@@ -50,9 +50,9 @@
 		</table>
 	</div>
 	<div class="container">
-		<iframe src="" height="550px" width="100%" style="border: none; overflow: hidden;"
+		<iframe src="" height="550px" width="100%" style="border: none;"
 			name="claim_a"></iframe>
-		<iframe src="" height="550px" width="100%" style="border: none; overflow: hidden;"
+		<iframe src="" height="550px" width="100%" style="border: none;"
 			name="claim_next"></iframe>
 	</div>
 </body>

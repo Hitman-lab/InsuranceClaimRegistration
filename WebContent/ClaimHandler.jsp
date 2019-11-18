@@ -26,9 +26,10 @@ li a:hover {
 	<div class="container">
 		<ul class="nav nav-pills nav-justified">
 			<li class="nav-item"><a class="nav-link" target="iframe_a"
-				href="#">CREATE CLAIM</a></li>
+				href="HandlerCreateClaim.jsp?usrName=${param.userName }">CREATE
+					CLAIM</a></li>
 			<li class="nav-item"><a class="nav-link" target="iframe_a"
-				href="#">VIEW CLAIM</a></li>
+				href="HandlerViewClaim.jsp?usrName=${param.userName }">VIEW CLAIM</a></li>
 			<li class="nav-item"><a class="nav-link" href="Login.jsp">LOGOUT</a>
 			</li>
 		</ul>

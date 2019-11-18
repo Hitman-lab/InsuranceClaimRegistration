@@ -35,7 +35,7 @@
 						Claim</h3>
 					<div class="card-body">
 					
-						<form action="claimQuestions.jsp" target="claim_next" method="post" name="claimForm">
+						<form action="ClaimCreate" target="claim_next" method="post" name="claimForm">
 							<div class="form-group">
 								<input type="text" class="form-control" id="claimReason"
 									placeholder="Enter Claim Reason" name="claimReason"
@@ -75,6 +75,10 @@
 									<!-- <option value="INSURED">CLAIM ADJUSTER</option> -->
 								</select>
 							</div>
+							<!-- <input type="submit" value="Submit" class="btn btn-danger"
+								onclick='return(ClaimFieldValidate())'> -->
+						<!-- 	<a target="claim_next" href="claimQuestions.jsp"
+								class="btn btn-danger">NEXT</a> -->
 							<input type="submit" value="NEXT" class="btn btn-danger" />
 						</form>
 					</div>

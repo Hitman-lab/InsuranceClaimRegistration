@@ -1,6 +1,7 @@
 package com.capg.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -27,14 +28,14 @@ public class ClaimQuestionsHandler extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		ServletContext conText = getServletContext();
+
+		PrintWriter out = response.getWriter();
+
 		PolicyService pService = new PolicyServiceImpl();
 
+		ServletContext conText = getServletContext();
 		long policyNumber = (long) conText.getAttribute("policyNumber");
-		long claimNumber = (long) conText.getAttribute("claimNumber");
-
-//		System.out.println(claimNumber);
+//		long claimNumber = (long) conText.getAttribute("claimNumber");
 
 		for (int i = 1; i < 5; i++) {
 			int quesId = i;
@@ -42,8 +43,12 @@ public class ClaimQuestionsHandler extends HttpServlet {
 			PolicyDetails details = new PolicyDetails(policyNumber, quesId, ans);
 			pService.insertPolicyDetails(details);
 		}
-		if (claimNumber > 0) {
-			response.sendRedirect("claimQuestions.jsp?claim_no=" + claimNumber);
-		}
+
+		out.print("<div class='container' style='margin-top: 50px;'");
+		out.print("<div class='card-header alert alert-info'>");
+		out.print("<div class='card-header alert alert-info'>");
+		out.print("<h2 style='color: red;'>" + "Claim Has Been Created Successfully" + "</h2>");
+		out.print("</div>");
+		out.print("</div>");
 	}
 }

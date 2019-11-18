@@ -82,13 +82,13 @@ public class LoginDaoImpl implements LoginDao {
 	}
 
 	
-//	  public static void main(String[] args) {
-//	  
-//		
-//		  
-//	  UserRole u1 = new UserRole("Tanuj", "Tanuj123"); new
-//	  LoginDaoImpl().getRoleCode(u1);
-//	  
-//	  }
+	  public static void main(String[] args) {
+	  
+		
+		  
+	  UserRole u1 = new UserRole("Tanuj", "Tanuj123"); new
+	  LoginDaoImpl().getRoleCode(u1);
+	  
+	  }
 	 
 }

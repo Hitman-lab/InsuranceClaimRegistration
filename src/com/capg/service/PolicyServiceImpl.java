@@ -29,4 +29,14 @@ public class PolicyServiceImpl implements PolicyService {
 	public int insertPolicyDetails(PolicyDetails details) {
 		return pdao.insertPolicyDetails(details);
 	}
+
+	@Override
+	public List<PolicyDetails> getPolicyDetails(long policyNumber) {
+		return pdao.getPolicyDetails(policyNumber);
+	}
+
+	@Override
+	public List<Policy> viewPolicies(long accountNumber) {
+		return cailmDao.viewPolicies(accountNumber);
+	}
 }

@@ -1,19 +1,19 @@
 package com.capg.model;
 
 public class Claim {
-	private long claimNumber;
+	private Long claimNumber;
 	private String claimReason;
 	private String incidentLocation;
 	private String incidentCity;
 	private String incidentState;
-	private String incidentZip;
+	private int incidentZip;
 	private String claimType;
-	private long policyNumber;
+	private Long policyNumber;
 
 	public Claim() {
 	}
 
-	public Claim(long claimNumber, String claimReason, String claimType, long policyNumber) {
+	public Claim(Long claimNumber, String claimReason, String claimType, Long policyNumber) {
 		super();
 		this.claimNumber = claimNumber;
 		this.claimReason = claimReason;
@@ -21,8 +21,8 @@ public class Claim {
 		this.policyNumber = policyNumber;
 	}
 
-	public Claim(long claimNumber, String incidentLocation, String incidentCity, String incidentState,
-			String incidentZip, String claimType, long policyNumber) {
+	public Claim(Long claimNumber, String incidentLocation, String incidentCity, String incidentState, int incidentZip,
+			String claimType, Long policyNumber) {
 		super();
 		this.claimNumber = claimNumber;
 		this.incidentLocation = incidentLocation;
@@ -33,8 +33,8 @@ public class Claim {
 		this.policyNumber = policyNumber;
 	}
 
-	public Claim(long claimNumber, String claimReason, String incidentLocation, String incidentCity,
-			String incidentState, String incidentZip, String claimType, long policyNumber) {
+	public Claim(Long claimNumber, String claimReason, String incidentLocation, String incidentCity,
+			String incidentState, int incidentZip, String claimType, Long policyNumber) {
 		super();
 		this.claimNumber = claimNumber;
 		this.claimReason = claimReason;
@@ -45,24 +45,24 @@ public class Claim {
 		this.claimType = claimType;
 		this.policyNumber = policyNumber;
 	}
-
+	
 	public Claim(String claimReason, String incidentLocation, String incidentCity, String incidentState,
-			String incidentZip, String claimType, long policyNumber) {
+			int accidentZip, String claimType, Long policyNumber) {
 		super();
 		this.claimReason = claimReason;
 		this.incidentLocation = incidentLocation;
 		this.incidentCity = incidentCity;
 		this.incidentState = incidentState;
-		this.incidentZip = incidentZip;
+		this.incidentZip = accidentZip;
 		this.claimType = claimType;
 		this.policyNumber = policyNumber;
 	}
 
-	public long getClaimNumber() {
+	public Long getClaimNumber() {
 		return claimNumber;
 	}
 
-	public void setClaimNumber(long claimNumber) {
+	public void setClaimNumber(Long claimNumber) {
 		this.claimNumber = claimNumber;
 	}
 
@@ -98,11 +98,11 @@ public class Claim {
 		this.incidentState = incidentState;
 	}
 
-	public String getIncidentZip() {
+	public int getIncidentZip() {
 		return incidentZip;
 	}
 
-	public void setIncidentZip(String incidentZip) {
+	public void setIncidentZip(int incidentZip) {
 		this.incidentZip = incidentZip;
 	}
 
@@ -114,11 +114,11 @@ public class Claim {
 		this.claimType = claimType;
 	}
 
-	public long getPolicyNumber() {
+	public Long getPolicyNumber() {
 		return policyNumber;
 	}
 
-	public void setPolicyNumber(long policyNumber) {
+	public void setPolicyNumber(Long policyNumber) {
 		this.policyNumber = policyNumber;
 	}
 

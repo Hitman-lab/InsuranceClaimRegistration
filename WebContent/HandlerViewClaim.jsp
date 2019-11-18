@@ -1,7 +1,7 @@
 <%@page import="com.capg.service.ClaimServiceImpl"%>
 <%@page import="com.capg.service.ClaimService"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.capg.model.Claim"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -9,20 +9,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
+<title>Claim Handler View</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<title>View Claim</title>
 </head>
-<%!ClaimService cService = new ClaimServiceImpl();%>
 <body>
 	<%
-		// Retrieving the Claim
-		List<Claim> claims = new ArrayList<>();
-		claims = cService.getAllClaims();
-		session.setAttribute("viewClaims", claims);
-	%>
+		ClaimService cService = new ClaimServiceImpl();
+		String user_name = request.getParameter("usrName");
 
+		// Retrieving the Claim for Handler
+		List<Claim> claims = new ArrayList<>();
+		claims = cService.getClaimHandlerCalim(user_name);
+		session.setAttribute("HandlerClaimView", claims);
+	%>
 	<div class="container" style="margin-top: 50px;">
 		<table class="table">
 			<thead class="thead-dark">
@@ -39,7 +40,7 @@
 			</thead>
 			<tbody>
 
-				<c:forEach items="${viewClaims }" var="vc">
+				<c:forEach items="${HandlerClaimView }" var="vc">
 					<tr>
 						<td>${vc.claimNumber }</td>
 						<td>${vc.claimReason }</td>

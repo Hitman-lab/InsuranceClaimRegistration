@@ -43,4 +43,24 @@ public class ClaimQuestionDaoImpl implements ClaimQuestionDao {
 		return claimsQ;
 	}
 
+	@Override
+	public String getClaimQuestions(int questionId) {
+
+		String question = "";
+		Connection con = JdbcUtility.getConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = con.prepareStatement("select ques_desc from claim_questions where ques_id = ?");
+			ps.setInt(1, questionId);
+			ResultSet rs = ps.executeQuery();
+
+			rs.next();
+			question = rs.getString("QUES_DESC");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return question;
+	}
+
 }

@@ -1,9 +1,9 @@
-<%@page import="com.capg.model.ClaimQuestions"%>
-<%@page import="com.capg.service.ClaimServiceImpl"%>
-<%@page import="com.capg.service.ClaimService"%>
 <%@page import="com.capg.model.Claim"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.capg.model.ClaimQuestions"%>
 <%@page import="java.util.List"%>
+<%@page import="com.capg.service.ClaimServiceImpl"%>
+<%@page import="com.capg.service.ClaimService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -15,42 +15,23 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<%!%>
+
 <body>
-
-	<%-- <jsp:useBean id=""></jsp:useBean> --%>
 	<%
-		ClaimService cService = new ClaimServiceImpl();
-
+		// getting the policy number from servletContext
+		
 		ServletContext cContext = getServletContext();
 		long policyNumber = (long) cContext.getAttribute("policyNumber");
-
-		String claimReason = request.getParameter("claimReason");
-		String incLocation = request.getParameter("claimLocation");
-		String incCity = request.getParameter("incidentCity");
-		String incState = request.getParameter("incidentState");
-		String incZip = request.getParameter("incidentZip");
-		String claimType = request.getParameter("claimType");
-		String incZipCode = request.getParameter("incidentZip");
-
-		Claim userClaim = new Claim(claimReason, incLocation, incCity, incState, incZipCode, claimType,
-				policyNumber);
-
-		long claimNumber = cService.insertClaimDetails(userClaim);
-		cContext.setAttribute("claimNumber", claimNumber);
-	%>
-	<%
-		/* ServletContext cContexts = getServletContext();
-		long policyNumbers = (long) cContext.getAttribute("policyNumber"); */
+		
+		// retrieving the claim questions
+		
+		ClaimService cService = new ClaimServiceImpl();
 		List<ClaimQuestions> questionsDetails = new ArrayList<ClaimQuestions>();
-
-		// retirieving the policy number from the Servlet Context
-
 		questionsDetails = cService.getAllClaimQuestions(policyNumber);
 		session.setAttribute("Questions", questionsDetails);
 	%>
 	<div class="container" style="margin-top: 50px">
-		<form action="QuestionHandler" method="post">
+		<form action="QuestionHandler" method="post" target="claim_ab">
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
@@ -86,13 +67,10 @@
 			<input type="submit" value="CREATE CLAIM" class="btn btn-danger">
 		</form>
 	</div>
-	<div class="container">
+	<div class="container" style="margin-top: 50px;">
 		<div class="card-header alert alert-info">
-			<h5 style="color: red;">
-				Claim Details Inserted With Claim Number: ${param.claim_no } and
-				Policy Number:
-				<%=cContext.getAttribute("policyNumber")%>
-			</h5>
+			<h5 style="color: red;">Claim Has Been Created for Policy No:
+				${param.policyNum} and Claim Number: ${param.claim_no }</h5>
 		</div>
 	</div>
 </body>

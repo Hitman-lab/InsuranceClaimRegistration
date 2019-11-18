@@ -49,7 +49,7 @@ public class LoginController extends HttpServlet {
 				break;
 
 			case "CLAIM HANDLER":
-				response.sendRedirect("ClaimHandler.jsp");
+				response.sendRedirect("ClaimHandler.jsp?userName=" + user.getUserName());
 				break;
 
 			case "INSURED":

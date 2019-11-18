@@ -11,12 +11,10 @@ public class UserServiceImpl implements UserService {
 	LoginDao logDao = new LoginDaoImpl();
 	ProfileCreationDao pDao = new ProfileCreationDaoImpl();
 
-	@Override
 	public boolean validateUser(UserRole user) {
 		return logDao.validateUser(user);
 	}
 
-	@Override
 	public String getRoleCode(UserRole user) {
 		return logDao.getRoleCode(user);
 	}
