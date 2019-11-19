@@ -35,11 +35,6 @@ li a:hover {
 			</li>
 		</ul>
 	</div>
-	<div class="container" style="margin-top: 10px;">
-		<div class="card-header alert alert-warning">
-			<h5 style="color: red; text-align: center;">Welcome ${ param.userName }</h5>
-		</div>
-	</div>
 	<div>
 		<iframe src="insured_iframe.htm" height="950px" width="100%"
 			style="border: none;" name="claim_ab"></iframe>
