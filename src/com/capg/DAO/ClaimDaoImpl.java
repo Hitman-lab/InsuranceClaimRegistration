@@ -120,6 +120,17 @@ public class ClaimDaoImpl implements ClaimDao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				statement.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+			try {
+				con.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
 		}
 
 		return result;
@@ -190,6 +201,17 @@ public class ClaimDaoImpl implements ClaimDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+			try {
+				con.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
 		}
 		return claim;
 	}
@@ -253,6 +275,17 @@ public class ClaimDaoImpl implements ClaimDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+			try {
+				con.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
 		}
 		return policies;
 	}
@@ -282,6 +315,47 @@ public class ClaimDaoImpl implements ClaimDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return claimDetail;
+	}
+
+	@Override
+	public List<Claim> getInsuredClaim(String user_name) {
+
+		List<Claim> claimDetail = new ArrayList<>();
+		PreparedStatement ps = null;
+		Connection con = JdbcUtility.getConnection();
+
+		String fetchClaim = "select * from claim c inner join policy p \n"
+				+ "    on c.policy_number = p.policy_number\n" + "    inner join accounts a on\n"
+				+ "    p.account_number = a.account_number \n" + "    where a.insured_name =?";
+		try {
+
+			ps = con.prepareStatement(fetchClaim);
+			ps.setString(1, user_name);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Claim cl = new Claim(rs.getLong("claim_number"), rs.getString("claim_reason"),
+						rs.getString("accident_location_street"), rs.getString("accident_city"),
+						rs.getString("accident_state"), rs.getInt("accident_zip"), rs.getString("claim_type"),
+						rs.getLong("policy_number"));
+				claimDetail.add(cl);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+			try {
+				con.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+
 		return claimDetail;
 	}
 

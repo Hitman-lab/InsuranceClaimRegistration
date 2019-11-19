@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.capg.jdbcUtility.JdbcUtility;
+import com.capg.model.Policy;
 import com.capg.model.PolicyDetails;
 
 public class PolicyDetailsDaoImpl implements PolicyDetailsDao {
@@ -84,7 +85,51 @@ public class PolicyDetailsDaoImpl implements PolicyDetailsDao {
 		}
 		return pDetails;
 	}
-	
+
+	@Override
+	public List<Policy> viewInsuredPolicy(String userName) {
+
+		PreparedStatement ps = null;
+		Connection con = JdbcUtility.getConnection();
+		List<Policy> pList = new ArrayList<>();
+
+		String fetchInsuredPolicy = "select * from policy p inner join accounts a \r\n"
+				+ "    on p.account_number = a.account_number where \r\n" + "    a.insured_name=?";
+
+		try {
+
+			ps = con.prepareStatement(fetchInsuredPolicy);
+			ps.setString(1, userName);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Policy p = new Policy();
+				p.setPolicy_number(rs.getLong("policy_number"));
+				p.setPolicyType(rs.getString("policy_type"));
+				p.setPolicyPremium(rs.getDouble("policy_premium"));
+				p.setAccountNumber(rs.getLong("account_number"));
+
+				pList.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+
+			try {
+				con.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return pList;
+	}
+
 	// public static void main(String[] args) {
 	// new PolicyDetailsDaoImpl().getPolicyDetails(10001);
 	// }

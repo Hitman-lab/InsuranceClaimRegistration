@@ -15,4 +15,6 @@ public interface PolicyService {
 	List<PolicyDetails> getPolicyDetails(long policyNumber);
 
 	List<Policy> viewPolicies(long accountNumber);
+	
+	List<Policy> viewInsuredPolicy(String userName);
 }

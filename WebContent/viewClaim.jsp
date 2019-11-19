@@ -51,6 +51,7 @@
 						<td>${vc.policyNumber }</td>
 					</tr>
 				</c:forEach>
+			</tbody>
 		</table>
 	</div>
 </body>

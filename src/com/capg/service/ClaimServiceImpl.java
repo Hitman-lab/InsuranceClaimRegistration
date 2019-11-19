@@ -58,4 +58,9 @@ public class ClaimServiceImpl implements ClaimService {
 		return cDao.getClaimHandlerCalim(user_name);
 	}
 
+	@Override
+	public List<Claim> getInsuredClaim(String user_name) {
+		return cDao.getInsuredClaim(user_name);
+	}
+
 }

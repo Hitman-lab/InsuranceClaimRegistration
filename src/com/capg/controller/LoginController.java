@@ -53,14 +53,14 @@ public class LoginController extends HttpServlet {
 				break;
 
 			case "INSURED":
-				response.sendRedirect("insuredPage.jsp");
+				response.sendRedirect("insuredPage.jsp?userName=" + user.getUserName());
 				break;
 
 			default:
 				break;
 			}
 		} else {
-			response.sendRedirect("ErrorLogin.jsp");
+			response.sendRedirect("Login.jsp?errorMsg=Username or Password Wrong");
 		}
 	}
 

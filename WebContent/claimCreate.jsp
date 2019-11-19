@@ -34,7 +34,6 @@
 					<h3 class="card-header alert alert-danger" style="color: maroon;">Create
 						Claim</h3>
 					<div class="card-body">
-					
 						<form action="ClaimCreate" target="claim_next" method="post" name="claimForm">
 							<div class="form-group">
 								<input type="text" class="form-control" id="claimReason"

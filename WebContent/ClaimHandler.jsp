@@ -29,10 +29,17 @@ li a:hover {
 				href="HandlerCreateClaim.jsp?usrName=${param.userName }">CREATE
 					CLAIM</a></li>
 			<li class="nav-item"><a class="nav-link" target="iframe_a"
-				href="HandlerViewClaim.jsp?usrName=${param.userName }">VIEW CLAIM</a></li>
+				href="HandlerViewClaim.jsp?usrName=${param.userName }">VIEW
+					CLAIM</a></li>
 			<li class="nav-item"><a class="nav-link" href="Login.jsp">LOGOUT</a>
 			</li>
 		</ul>
+	</div>
+	<div class="container" style="margin-top: 50px;">
+		<div class="card-header alert alert-primary">
+			<h5 style="color: black; text-align: center;">Welcome
+				"${param.userName}"</h5>
+		</div>
 	</div>
 	<div>
 		<iframe src="claim_handler_iframe.htm" height="550px" width="100%"

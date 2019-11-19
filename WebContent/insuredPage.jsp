@@ -25,17 +25,24 @@ li a:hover {
 	</div>
 	<div class="container">
 		<ul class="nav nav-pills nav-justified">
-			<li class="nav-item"><a class="nav-link" target="iframe_a"
-				href="#">CREATE CLAIM</a></li>
-			<li class="nav-item"><a class="nav-link" target="iframe_a"
-				href="#">VIEW CLAIM</a></li>
+			<li class="nav-item"><a class="nav-link" target="claim_ab"
+				href="ViewPolicyClaim.jsp?usrName=${param.userName }">VIEW
+					POLICY</a></li>
+			<li class="nav-item"><a class="nav-link" target="claim_ab"
+				href="ViewInsuredClaim.jsp?usrName=${param.userName }">VIEW
+					CLAIM</a></li>
 			<li class="nav-item"><a class="nav-link" href="Login.jsp">LOGOUT</a>
 			</li>
 		</ul>
 	</div>
+	<div class="container" style="margin-top: 10px;">
+		<div class="card-header alert alert-warning">
+			<h5 style="color: red; text-align: center;">Welcome ${ param.userName }</h5>
+		</div>
+	</div>
 	<div>
-		<iframe src="insured_iframe.htm" height="550px" width="100%"
-			style="border: none;" name="iframe_a"></iframe>
+		<iframe src="insured_iframe.htm" height="950px" width="100%"
+			style="border: none;" name="claim_ab"></iframe>
 	</div>
 </body>
 </html>

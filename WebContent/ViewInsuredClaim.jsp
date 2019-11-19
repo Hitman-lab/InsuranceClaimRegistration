@@ -1,8 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.capg.model.Claim"%>
+<%@page import="java.util.List"%>
 <%@page import="com.capg.service.ClaimServiceImpl"%>
 <%@page import="com.capg.service.ClaimService"%>
-<%@page import="com.capg.model.Claim"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Claim Handler View</title>
+<title>View Insured Claim</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
@@ -19,10 +19,11 @@
 		ClaimService cService = new ClaimServiceImpl();
 		String user_name = request.getParameter("usrName");
 
-		// Retrieving the Claim for Handler
+		// retirieving the calim for insured (USED JOIN QUERY)
 		List<Claim> claims = new ArrayList<>();
-		claims = cService.getClaimHandlerCalim(user_name);
-		session.setAttribute("HandlerClaimView", claims);
+		claims = cService.getInsuredClaim(user_name);
+		session.setAttribute("insuredClaimView", claims);
+
 		if (claims.isEmpty()) {
 	%>
 	<div class="container" style="margin-top: 50px;">
@@ -48,16 +49,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${HandlerClaimView }" var="Hc">
+				<c:forEach items="${insuredClaimView }" var="ic">
 					<tr>
-						<td>${Hc.claimNumber }</td>
-						<td>${Hc.claimReason }</td>
-						<td>${Hc.incidentLocation }</td>
-						<td>${Hc.incidentCity }</td>
-						<td>${Hc.incidentState }</td>
-						<td>${Hc.incidentZip }</td>
-						<td>${Hc.claimType }</td>
-						<td>${Hc.policyNumber }</td>
+						<td>${ic.claimNumber }</td>
+						<td>${ic.claimReason }</td>
+						<td>${ic.incidentLocation }</td>
+						<td>${ic.incidentCity }</td>
+						<td>${ic.incidentState }</td>
+						<td>${ic.incidentZip }</td>
+						<td>${ic.claimType }</td>
+						<td>${ic.policyNumber }</td>
 					</tr>
 				</c:forEach>
 			</tbody>

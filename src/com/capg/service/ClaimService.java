@@ -22,4 +22,6 @@ public interface ClaimService {
 	List<Accounts> getHandlerPolicyDetails(String userRole);
 
 	List<Claim> getClaimHandlerCalim(String user_name);
+
+	List<Claim> getInsuredClaim(String user_name);
 }

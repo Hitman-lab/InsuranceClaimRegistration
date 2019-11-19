@@ -20,6 +20,8 @@ public interface ClaimDao {
 	public List<Accounts> getHandlerPolicyDetails(String userRole);
 
 	List<Policy> viewPolicies(long accountNumber);
-	
+
 	public List<Claim> getClaimHandlerCalim(String user_name);
+
+	public List<Claim> getInsuredClaim(String user_name);
 }

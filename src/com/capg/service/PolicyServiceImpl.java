@@ -39,4 +39,9 @@ public class PolicyServiceImpl implements PolicyService {
 	public List<Policy> viewPolicies(long accountNumber) {
 		return cailmDao.viewPolicies(accountNumber);
 	}
+
+	@Override
+	public List<Policy> viewInsuredPolicy(String userName) {
+		return pdao.viewInsuredPolicy(userName);
+	}
 }

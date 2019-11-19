@@ -13,12 +13,12 @@
 		<h2 style="">Claim Registration System</h2>
 	</div>
 	<div class="container" style="margin-top: 90px">
-	
+
 		<div class="row">
 			<div class="col-lg-4 col-lg-5 col-md-5" style="margin-left: -100px;">
 				<img src="images/insu1.jpg" alt="insurance" />
 			</div>
-			<div class="col-lg-4 col-lg-5 col-md-5" style="margin-left:160px;">
+			<div class="col-lg-4 col-lg-5 col-md-5" style="margin-left: 160px;">
 				<div class="card">
 					<h3 class="card-header alert alert-danger" style="color: maroon;">Login</h3>
 					<div class="card-body">
@@ -37,6 +37,9 @@
 							<input type="submit" value="Submit" class="btn btn-danger"
 								onclick='return(validate())'>
 						</form>
+					</div>
+					<div > 
+						<h4 style="color: red;">${param.errorMsg }</h4>
 					</div>
 				</div>
 			</div>
