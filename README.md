@@ -15,3 +15,7 @@ There are 3 actors :
 **HOME PAGE**
 
 ![image](https://user-images.githubusercontent.com/52199294/69261372-6ea6d680-0be7-11ea-9e7c-7c9bc03c1ed0.png)
+
+**Claim Adjuster(ADMIN)**
+
+![image](https://user-images.githubusercontent.com/52199294/69261528-b9c0e980-0be7-11ea-8a95-796168731ae0.png)
