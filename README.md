@@ -1,1 +1,1 @@
-Online Claim Registration System
+> Claim Registration
