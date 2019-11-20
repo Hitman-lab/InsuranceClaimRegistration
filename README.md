@@ -19,3 +19,21 @@ There are 3 actors :
 **Claim Adjuster(ADMIN)**
 
 ![image](https://user-images.githubusercontent.com/52199294/69261528-b9c0e980-0be7-11ea-8a95-796168731ae0.png)
+
+1. Admin can create Profile
+
+![image](https://user-images.githubusercontent.com/52199294/69262036-b8dc8780-0be8-11ea-89e8-fa041cdda2c9.png)
+
+2. Admin can Create Claim for all Registered Insured
+
+![image](https://user-images.githubusercontent.com/52199294/69262128-e6c1cc00-0be8-11ea-8840-b0d3fab013ff.png)
+
+3. Can View claim
+
+![image](https://user-images.githubusercontent.com/52199294/69262163-f9d49c00-0be8-11ea-9e97-ba54067e778c.png)
+
+4. Can Generate Report for calimed
+
+
+![image](https://user-images.githubusercontent.com/52199294/69262179-02c56d80-0be9-11ea-8b77-53fbf320dbb3.png)
+
