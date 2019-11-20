@@ -10,6 +10,16 @@ There are 3 actors :
 
 <hr>
 
+Technologies Used:
+1. HTML
+2. Bootstrap
+3. Javascript
+4. JSP
+5. Servlet
+6. JDBC
+
+<hr>
+
 ## Screenshots 
 
 **HOME PAGE**
@@ -49,7 +59,7 @@ There are 3 actors :
 ![image](https://user-images.githubusercontent.com/52199294/69262623-d3fbc700-0be9-11ea-9928-9aa1324a523f.png)
 
 
-2. Can view Claim
+2. Can view Claims
 
 ![image](https://user-images.githubusercontent.com/52199294/69262648-de1dc580-0be9-11ea-98d9-18a970630311.png)
 
